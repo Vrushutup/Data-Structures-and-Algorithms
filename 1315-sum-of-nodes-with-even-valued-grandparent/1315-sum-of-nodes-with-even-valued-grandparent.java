@@ -39,7 +39,7 @@ class Solution {
         helper(node.left);
         helper(node.right);
         
-        return sum;
+        return 0;
     }
     
     public int sumEvenGrandparent(TreeNode root) {
