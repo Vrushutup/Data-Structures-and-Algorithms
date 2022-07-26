@@ -1,23 +1,21 @@
 class Solution {
-    List<List<Integer>> ans;
+    List<List<Integer>> Ans;
     public List<List<Integer>> allPathsSourceTarget(int[][] graph) {
-        ans=new ArrayList<>();
-        List<Integer> path=new ArrayList<>();
-        path.add(0);
-        allPathsUtil(path,0, graph);
-        return ans;
+        Ans=new ArrayList<>();
+     List<Integer> path=new ArrayList<>();
+     path.add(0);
+     allPath(path,graph,0);
+     return Ans;
     }
-
-    private void allPathsUtil(List<Integer> path, int i, int[][] graph) {
-
-        if(i==graph.length-1){
-            ans.add(path);
+    private void allPath(List<Integer> path,int[][] graph, int i){
+        if(graph.length-1==i){
+            Ans.add(path);
             return;
         }
         for(int node:graph[i]){
             List<Integer> newPath=new ArrayList<>(path);
             newPath.add(node);
-            allPathsUtil(newPath,node, graph);
+            allPath(newPath,graph,node);
         }
     }
 }
